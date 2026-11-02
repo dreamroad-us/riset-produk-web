@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riset & Skripsi dengan AI — Playbook AI untuk Riset & Skripsi/Tesis</title>
+<meta name="description" content="Playbook AI untuk menyelesaikan skripsi & tesis dengan workflow yang bisa dipertanggungjawabkan di depan penguji. Bukan joki, bukan skripsi instan. Tersedia sekarang.">
+<style>
+  :root{
+    --ink:#1c2b4a; --ink2:#42506e; --paper:#faf8f3; --card:#ffffff;
+    --accent:#0e7c66; --accent-d:#0a5f4f; --gold:#e9b44c; --line:#e5e0d5;
+    --danger:#b3402e; --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  section{padding:52px 0}
+  h1{font-size:2.35rem;line-height:1.15;letter-spacing:-.02em;font-weight:800}
+  h2{font-size:1.55rem;line-height:1.25;letter-spacing:-.01em;margin-bottom:14px}
+  h3{font-size:1.08rem;margin-bottom:6px}
+  p{margin-bottom:12px;color:var(--ink2)}
+  p strong, li strong{color:var(--ink)}
+  .badge{display:inline-block;background:var(--gold);color:#4a3603;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:980px;margin-bottom:18px}
+  .hero{padding:64px 0 48px;text-align:left}
+  .hero .sub{font-size:1.22rem;color:var(--ink);font-weight:600;margin:16px 0 10px}
+  .hero p{font-size:1.02rem}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 14px}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:980px;padding:14px 26px;font-size:1rem;border:2px solid var(--accent);cursor:pointer;text-align:center}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-d)}
+  .btn-ghost{background:transparent;color:var(--accent)}
+  .note{font-size:.88rem;color:var(--ink2);background:#f1ecdf;border:1px dashed #cfc5a8;border-radius:10px;padding:10px 14px}
+  .ph{background:#ffe9a8;padding:0 4px;border-radius:4px;font-weight:600;color:#6b5205}
+  .pain li{margin-bottom:10px}
+  ul.check{list-style:none}
+  ul.check li{padding-left:30px;position:relative;margin-bottom:10px;color:var(--ink2)}
+  ul.check li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
+  ul.cross li::before{content:"✕";color:var(--danger)}
+  .toc{display:grid;gap:10px}
+  .toc .row{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;display:flex;gap:14px;align-items:baseline}
+  .toc .no{flex:0 0 34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;align-self:center}
+  .toc p{margin:0;font-size:.98rem}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr} h1{font-size:1.95rem}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.price-grid{grid-template-columns:1fr}}
+  .price{position:relative}
+  .price.featured{border:2px solid var(--accent);box-shadow:0 10px 30px rgba(14,124,102,.12)}
+  .price .tag{position:absolute;top:-13px;left:18px;background:var(--accent);color:#fff;font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:980px;letter-spacing:.04em}
+  .amount{font-size:1.9rem;font-weight:800;color:var(--ink)}
+  .was{color:#9a927e;text-decoration:line-through;font-size:1rem;margin-left:8px}
+  .price ul{margin:12px 0 18px}
+  .guarantee{background:#eef7f3;border:1px solid #bfe0d4;border-radius:var(--radius);padding:24px}
+  details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin-bottom:10px}
+  summary{font-weight:700;cursor:pointer;color:var(--ink)}
+  details p{margin-top:8px;font-size:.98rem}
+  form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  label{display:block;font-weight:600;font-size:.95rem;margin:14px 0 6px;color:var(--ink)}
+  label:first-child{margin-top:0}
+  input,select{width:100%;padding:12px 14px;border:1px solid #c9c2b2;border-radius:10px;font-size:16px;background:#fff;color:var(--ink)}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:.9rem;color:var(--ink2)}
+  .consent input{width:auto;margin-top:4px}
+  form .btn{width:100%}
+  #form-msg{display:none;margin-top:14px;border-radius:10px;padding:12px 14px;font-size:.95rem}
+  #form-msg.ok{display:block;background:#eef7f3;border:1px solid #bfe0d4;color:var(--accent-d)}
+  #form-msg.warn{display:block;background:#fdf3e7;border:1px solid #ecd3ac;color:#7a5410}
+  .disclaimer{font-size:.82rem;color:#8a8271;text-align:center;padding:0 0 90px}
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px;display:none;gap:10px;z-index:50}
+  .sticky-cta .btn{flex:1;padding:12px 10px;font-size:.95rem}
+  @media(max-width:640px){.sticky-cta{display:flex} body{padding-bottom:64px}}
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;text-align:center;font-size:.88rem;color:#8a8271}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Tersedia Sekarang — Satu Harga, Paket Lengkap</span>
+    <h1>Riset & Skripsi dengan AI.</h1>
+    <p class="sub">Playbook AI untuk menyelesaikan skripsi &amp; tesis dengan cara yang bisa kamu pertanggungjawabkan di depan penguji.</p>
+    <p>Workflow lengkap dari awal sampai sidang — memakai alat riset beneran (NotebookLM, Perplexity, Zotero, Claude/ChatGPT), lengkap dengan ±140 prompt terkurasi dan template dokumen. <strong>Bukan joki. Bukan “skripsi instan”.</strong> Kamu tetap menulis; AI mempercepat riset dan revisimu.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#preorder">Beli Sekarang — Rp100 rb</a>
+      <a class="btn btn-ghost" data-link="babgratis" href="#babgratis">Baca Bab Gratis Dulu</a>
+    </div>
+    <p class="note">Buku sudah terbit dan siap diunduh. Setelah pembayaran, tautan unduh dikirim ke email &amp; WhatsApp yang kamu daftarkan.</p>
+  </div>
+</header>
+
+<!-- ================= MASALAH ================= -->
+<section style="padding-top:8px">
+  <div class="wrap">
+    <h2>Terdengar familiar?</h2>
+    <ul class="check pain">
+      <li>Judul/proposal <strong>ditolak berkali-kali</strong> dan kamu tidak tahu persis apa yang kurang.</li>
+      <li>Bertanya ke AI, tapi jawabannya generik — dan kamu <strong>takut referensinya palsu</strong>.</li>
+      <li>Revisi dosen menumpuk karena tidak ada sistem: mana yang sudah dikerjakan, mana yang belum.</li>
+      <li>Teman sudah sidang, kamu masih di Bab 1.</li>
+      <li>Produk prompt di luar sana menjanjikan “kelar 7 hari” — kamu sendiri tidak yakin isinya bisa dipertanggungjawabkan.</li>
+    </ul>
+    <p>Masalahnya jarang soal kemalasan. Yang hilang adalah <strong>workflow</strong>: urutan kerja yang benar, dengan verifikasi di setiap langkah. Itulah yang dijual buku ini.</p>
+  </div>
+</section>
+
+<!-- ================= ISI BUKU ================= -->
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Satu workflow, Bab 0 sampai sidang</h2>
+    <div class="toc">
+      <div class="row"><div class="no">0</div><div><h3>Etika &amp; peta workflow</h3><p>Cara memakai AI secara aman menurut kebijakan kampus, dan prinsip “AI mengusulkan, kamu memverifikasi”.</p></div></div>
+      <div class="row"><div class="no">1</div><div><h3>Menemukan topik &amp; awal riset</h3><p>Dari fenomena sampai kalimat awal yang bisa dipertahankan. Bab ini bisa kamu baca gratis, lengkap dengan 10 prompt.</p></div></div>
+      <div class="row"><div class="no">2</div><div><h3>Review literatur tanpa referensi palsu</h3><p>Mencari, menyaring, dan mensintesis jurnal dengan NotebookLM, Perplexity &amp; Zotero.</p></div></div>
+      <div class="row"><div class="no">3</div><div><h3>Bab 1 &amp; proposal yang meyakinkan</h3><p>Latar belakang berlapis: fenomena → data → awal → urgensi, sampai siap sempro.</p></div></div>
+      <div class="row"><div class="no">4</div><div><h3>Kerangka teori &amp; Bab 2</h3><p>Membangun kerangka dari literatur yang sudah kamu telaah, bukan menyalin.</p></div></div>
+      <div class="row"><div class="no">5</div><div><h3>Metodologi per metode</h3><p>Kualitatif, kuantitatif, mixed method — memilih dan menuliskannya tanpa menebak.</p></div></div>
+      <div class="row"><div class="no">6</div><div><h3>Mengolah data dengan bantuan AI</h3><p>Coding transkrip, membaca output SPSS/SmartPLS — dan batas tegas kapan AI tidak boleh ikut campur.</p></div></div>
+      <div class="row"><div class="no">7</div><div><h3>Parafrase etis &amp; sitasi</h3><p>Parafrase yang mengubah struktur, sitasi APA 7, dan cek Turnitin yang aman.</p></div></div>
+      <div class="row"><div class="no">8</div><div><h3>Revisi dosen &amp; persiapan sidang</h3><p>Tracker revisi, PPT dari naskah, dan bank pertanyaan penguji untuk latihan menjawab.</p></div></div>
+      <div class="row"><div class="no">✓</div><div><h3>Penutup: rencana kerja 30 hari</h3><p>Workflow dipecah jadi target mingguan realistis + checklist kesiapan sidang.</p></div></div>
+    </div>
+    <p style="margin-top:16px"><strong>Di paket ini juga termasuk:</strong> prompt library ±140 prompt siap salin-tempel · template Word Bab 1–5 · template PPT sempro &amp; sidang · spreadsheet tracker progres &amp; log revisi · checklist anti-referensi-palsu · update materi 6 bulan · grup diskusi pembaca.</p>
+  </div>
+</section>
+
+<!-- ================= UNTUK SIAPA ================= -->
+<section>
+  <div class="wrap">
+    <h2>Untuk siapa — dan bukan untuk siapa</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Cocok untukmu jika…</h3>
+        <ul class="check">
+          <li>Kamu mahasiswa <strong>S1 tingkat akhir atau S2</strong> (termasuk yang sambil bekerja).</li>
+          <li>Skripsimu mandek di judul, Bab 1–3, atau revisi.</li>
+          <li>Kamu mau memakai AI dengan cara yang <strong>aman di depan penguji</strong>.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Bukan untukmu jika…</h3>
+        <ul class="check cross">
+          <li>Kamu mencari <strong>joki</strong> atau jasa pengerjaan skripsi.</li>
+          <li>Kamu mencari <strong>jaminan lulus</strong>. Tidak ada yang bisa menjamin itu — buku ini menjamin prosesmu rapi dan maju. Kalau bukan itu yang kamu cari, jangan beli.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HARGA ================= -->
+<section id="harga" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Satu harga, paket lengkap</h2>
+    <div class="price-grid" style="grid-template-columns:1fr;max-width:520px;margin:0 auto">
+      <div class="card price featured">
+        <span class="tag">SATU HARGA — SEMUA TERMASUK</span>
+        <h3>Paket Lengkap</h3>
+        <p><span class="amount">Rp100.000</span><span class="was">Rp179.000</span></p>
+        <ul class="check">
+          <li>Ebook PDF lengkap Bab 0–8 + penutup</li>
+          <li>Prompt library ±140 prompt</li>
+          <li>Template Word, PPT &amp; tracker revisi</li>
+          <li>Grup diskusi pembaca</li>
+          <li>Update materi 6 bulan</li>
+        </ul>
+        <a class="btn btn-primary" href="#preorder" data-paket="lengkap" style="width:100%">Beli Paket Lengkap</a>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:.95rem">Tidak ada biaya tambahan dan tidak ada tingkatan paket — satu harga untuk semua isi. Pembayaran: <span class="ph">[QRIS / transfer / e-wallet — sesuaikan checkout]</span></p>
+  </div>
+</section>
+
+<!-- ================= GARANSI ================= -->
+<section>
+  <div class="wrap">
+    <div class="guarantee">
+      <h2>Garansi 7 hari uang kembali</h2>
+      <p style="margin:0">Sejak buku diterima, kalau isinya tidak membantumu, ajukan refund dalam 7 hari — <strong>uang kembali penuh, tanpa drama</strong>. Kamu tidak menanggung risiko apa pun.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BAB GRATIS ================= -->
+<section id="babgratis" style="padding-top:0">
+  <div class="wrap">
+    <h2>Masih ragu? Baca Bab 1-nya, gratis.</h2>
+    <p>Workflow awal riset versi ringkas + 10 prompt siap pakai + checklist kesiapan judul. Tanpa kartu kredit, tanpa kewajiban membeli — kalau cara berpikirnya tidak cocok, kamu berhenti di situ saja.</p>
+    <a class="btn btn-primary" data-link="babgratis" href="#babgratis">Unduh Bab Gratis</a>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Pertanyaan yang sering diajukan</h2>
+    <details><summary>Apakah ini joki skripsi?</summary><p>Bukan. Ini buku metode: kamu tetap meneliti dan menulis sendiri. Separuh isinya justru cara memakai AI secara etis dan bisa dipertanggungjawabkan — termasuk kapan AI <em>tidak boleh</em> dipakai.</p></details>
+    <details><summary>Saya belum punya judul. Apakah cocok?</summary><p>Sangat — Bab 1 mulai dari nol: dari fenomena sampai kalimat awal riset. Baca bab gratisnya dulu sebelum memutuskan.</p></details>
+    <details><summary>Kampus saya melarang AI, bagaimana?</summary><p>Kebijakan kampus berbeda-beda. Bab 0 membahas cara membaca kebijakan kampusmu dan mengungkapkan pemakaian AI bila diminta. Buku ini tidak mengajarkan pengelakan aturan.</p></details>
+    <details><summary>Perlu langganan AI berbayar?</summary><p>Tidak wajib. Workflow disusun agar bisa jalan dengan versi gratis (ChatGPT/Claude/Perplexity/NotebookLM); versi berbayar hanya mempercepat, dan buku menandai bagian yang berbeda.</p></details>
+    <details><summary>Kapan buku saya terima?</summary><p>Segera setelah pembayaran — tautan unduh dikirim ke email &amp; WhatsApp yang kamu daftarkan, tanpa menunggu.</p></details>
+    <details><summary>Format dan pengirimannya bagaimana?</summary><p>PDF untuk ebook, Google Sheet/Notion untuk prompt library, .docx/.xlsx untuk template. Dikirim ke email &amp; WhatsApp yang kamu daftarkan segera setelah pembayaran.</p></details>
+    <details><summary>Ada grup atau bimbingan?</summary><p>Paket ini sudah termasuk grup diskusi pembaca untuk tanya-jawab seputar workflow — bukan bimbingan skripsi pribadi dan bukan konsultasi isi skripsimu.</p></details>
+  </div>
+</section>
+
+<!-- ================= FORM PEMBELIAN ================= -->
+<section id="preorder">
+  <div class="wrap">
+    <h2>Formulir pembelian</h2>
+    <p>Isi data di bawah ini. Setelah checkout terhubung, tombol kirim akan meneruskanmu ke halaman pembayaran.</p>
+    <form id="po-form" novalidate>
+      <label for="nama">Nama lengkap</label>
+      <input id="nama" name="nama" type="text" required autocomplete="name" placeholder="Nama kamu">
+      <label for="wa">No. WhatsApp aktif</label>
+      <input id="wa" name="wa" type="tel" required autocomplete="tel" placeholder="08xxxxxxxxxx">
+      <label for="email">Email (untuk pengiriman buku)</label>
+      <input id="email" name="email" type="email" required autocomplete="email" placeholder="nama@email.com">
+      <label for="paket">Pilihan paket</label>
+      <select id="paket" name="paket">
+        <option value="lengkap">Paket Lengkap — Rp100.000</option>
+      </select>
+      <label for="kampus">Kampus &amp; jenjang (opsional)</label>
+      <input id="kampus" name="kampus" type="text" placeholder="cth: Universitas X — S1">
+      <div class="consent">
+        <input id="setuju" type="checkbox" required>
+        <span>Saya paham ini <strong>pembelian produk digital</strong>: setelah pembayaran, tautan unduh dikirim ke email &amp; WhatsApp yang saya daftarkan, dan garansi 7 hari uang kembali berlaku sejak buku diterima.</span>
+      </div>
+      <button class="btn btn-primary" type="submit">Kirim &amp; Lanjut ke Pembayaran</button>
+      <div id="form-msg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<div class="wrap">
+  <p class="disclaimer">Produk edukasi metode penelitian. Hasil bergantung pada usaha pembeli dan kebijakan kampus masing-masing. Tidak ada jaminan kelulusan, nilai, atau diterimanya judul. Skripsi/tesis tetap karya pembeli sendiri.</p>
+</div>
+
+<footer>
+  <div class="wrap">Riset & Skripsi dengan AI — halaman penjualan resmi.<br>Baca juga: <a data-link="babgratis" href="#babgratis">Bab Gratis: Menemukan Topik &amp; Awal Riset</a></div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-ghost" data-link="babgratis" href="#babgratis">Bab Gratis</a>
+  <a class="btn btn-primary" href="#preorder">Beli Sekarang — Rp100 rb</a>
+</div>
+
+<script>
+/* ============================================================
+   KONFIGURASI HALAMAN — isi tiga nilai ini sebelum halaman live:
+   1) targetDate  : tanggal target terbit, cth "28 November 2026"
+   2) checkoutUrl : tautan checkout (Scalev/OrderHero/dll).
+                    Selama kosong, formulir menampilkan pemberitahuan
+                    bahwa checkout belum terhubung.
+   3) babGratisUrl: tautan file bab gratis (PDF/halaman unduh).
+                    Selama kosong, tombol bab gratis mengarah ke
+                    bagian #babgratis di halaman ini.
+   ============================================================ */
+const CONFIG = {
+  targetDate: "",
+  checkoutUrl: "",
+  babGratisUrl: ""
+};
+
+if (CONFIG.targetDate) {
+  document.querySelectorAll(".tgl-target").forEach(function(el){ el.textContent = CONFIG.targetDate; el.classList.remove("ph"); });
+}
+if (CONFIG.babGratisUrl) {
+  document.querySelectorAll('[data-link="babgratis"]').forEach(function(a){ a.href = CONFIG.babGratisUrl; });
+}
+document.querySelectorAll('[data-paket]').forEach(function(a){
+  a.addEventListener("click", function(){
+    var sel = document.getElementById("paket");
+    if (sel) sel.value = a.getAttribute("data-paket");
+  });
+});
+document.getElementById("po-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  var msg = document.getElementById("form-msg");
+  var nama = document.getElementById("nama").value.trim();
+  var wa = document.getElementById("wa").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var setuju = document.getElementById("setuju").checked;
+  if (!nama || !wa || !email || !setuju) {
+    msg.className = "warn";
+    msg.textContent = "Mohon lengkapi nama, WhatsApp, email, dan centang persetujuan pembelian dulu ya.";
+    msg.style.display = "block";
+    return;
+  }
+  if (CONFIG.checkoutUrl) {
+    window.location.href = CONFIG.checkoutUrl;
+    return;
+  }
+  msg.className = "warn";
+  msg.textContent = "Terima kasih, " + nama + ". Halaman pembayaran belum terhubung — penjualan dibuka resmi sebentar lagi. Data di formulir ini belum terkirim ke mana pun.";
+  msg.style.display = "block";
+});
+</script>
+</body>
+</html>
