@@ -135,12 +135,6 @@
   .guarantee h2{margin-bottom:8px}
   .guarantee p{margin:0}
   /* free chapter */
-  .free-card{background:var(--ink);color:#fff;border-radius:var(--radius);padding:30px;display:flex;gap:22px;align-items:center}
-  @media(max-width:640px){.free-card{flex-direction:column;align-items:flex-start}}
-  .free-card h2{color:#fff}
-  .free-card p{color:#c9d2e4;margin:0}
-  .free-card .btn{flex:0 0 auto;background:var(--gold);border-color:var(--gold);color:#4a3603}
-  .free-card .btn:hover{background:#f2c66d}
   /* faq */
   details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin-bottom:10px}
   summary{font-weight:700;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
@@ -214,7 +208,6 @@
       <p>Workflow lengkap dari awal sampai sidang, memakai alat riset beneran (NotebookLM, Perplexity, Zotero, Claude/ChatGPT), lengkap dengan ±140 prompt terkurasi dan template dokumen. <strong>Bukan joki. Bukan “skripsi instan”.</strong> Kamu tetap menulis; AI mempercepat riset dan revisimu.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#preorder">Beli Sekarang</a>
-        <a class="btn btn-ghost" data-link="babgratis" href="#babgratis">Baca Bab Preview Dulu</a>
       </div>
       <p class="note">Buku sudah terbit dan siap diunduh. Setelah pembayaran, tautan unduh dikirim ke email &amp; WhatsApp yang kamu daftarkan.</p>
       <div class="trust">
@@ -263,7 +256,7 @@
     <h2>Satu workflow, Bab 0 sampai sidang</h2>
     <div class="toc">
       <div class="row"><div class="no" style="background:#0E7C66">0</div><div><h3>Etika &amp; peta workflow</h3><p>Cara memakai AI secara aman menurut kebijakan kampus, dan prinsip “AI mengusulkan, kamu memverifikasi”.</p></div></div>
-      <div class="row"><div class="no" style="background:#5B5BD6">1</div><div><h3>Menemukan topik &amp; awal riset</h3><p>Dari fenomena sampai kalimat awal yang bisa dipertahankan. Bab ini bisa kamu baca gratis, lengkap dengan 10 prompt.</p></div></div>
+      <div class="row"><div class="no" style="background:#5B5BD6">1</div><div><h3>Menemukan topik &amp; awal riset</h3><p>Dari fenomena sampai kalimat awal yang bisa dipertahankan. Lengkap dengan 10 prompt siap pakai.</p></div></div>
       <div class="row"><div class="no" style="background:#2563EB">2</div><div><h3>Review literatur tanpa referensi palsu</h3><p>Mencari, menyaring, dan mensintesis jurnal dengan NotebookLM, Perplexity &amp; Zotero.</p></div></div>
       <div class="row"><div class="no" style="background:#0284C7">3</div><div><h3>Bab 1 &amp; proposal yang meyakinkan</h3><p>Latar belakang berlapis: fenomena → data → awal → urgensi, sampai siap sempro.</p></div></div>
       <div class="row"><div class="no" style="background:#059669">4</div><div><h3>Kerangka teori &amp; Bab 2</h3><p>Membangun kerangka dari literatur yang sudah kamu telaah, bukan menyalin.</p></div></div>
@@ -379,19 +372,6 @@
   </div>
 </section>
 
-<!-- ================= BAB GRATIS ================= -->
-<section id="babgratis" style="padding-top:0">
-  <div class="wrap">
-    <div class="free-card">
-      <span class="g-ic" style="background:var(--gold);color:#4a3603"><svg class="ic"><use href="#i-book"/></svg></span>
-      <div style="flex:1">
-        <h2>Masih ragu? Baca Bab 1-nya, gratis.</h2>
-        <p>Workflow awal riset versi ringkas + 10 prompt siap pakai + checklist kesiapan judul. Tanpa kartu kredit, tanpa kewajiban membeli, kalau cara berpikirnya tidak cocok, kamu berhenti di situ saja.</p>
-      </div>
-      <a class="btn" data-link="babgratis" href="#babgratis">Baca Bab Preview</a>
-    </div>
-  </div>
-</section>
 
 <!-- ================= FAQ ================= -->
 <section class="band">
@@ -400,7 +380,7 @@
       <span class="eyebrow"><svg class="ic"><use href="#i-chat"/></svg>FAQ</span>
       <h2>Pertanyaan yang sering diajukan</h2>
       <details><summary>Apakah ini joki skripsi?</summary><p>Bukan. Ini buku metode: kamu tetap meneliti dan menulis sendiri. Separuh isinya justru cara memakai AI secara etis dan bisa dipertanggungjawabkan, termasuk kapan AI <em>tidak boleh</em> dipakai.</p></details>
-      <details><summary>Saya belum punya judul. Apakah cocok?</summary><p>Sangat. Bab 1 mulai dari nol: dari fenomena sampai kalimat awal riset. Baca bab gratisnya dulu sebelum memutuskan.</p></details>
+      <details><summary>Saya belum punya judul. Apakah cocok?</summary><p>Sangat. Bab 1 mulai dari nol: dari fenomena sampai kalimat awal riset.</p></details>
       <details><summary>Kampus saya melarang AI, bagaimana?</summary><p>Kebijakan kampus berbeda-beda. Bab 0 membahas cara membaca kebijakan kampusmu dan mengungkapkan pemakaian AI bila diminta. Buku ini tidak mengajarkan pengelakan aturan.</p></details>
       <details><summary>Perlu langganan AI berbayar?</summary><p>Tidak wajib. Workflow disusun agar bisa jalan dengan versi gratis (ChatGPT/Claude/Perplexity/NotebookLM); versi berbayar hanya mempercepat, dan buku menandai bagian yang berbeda.</p></details>
       <details><summary>Kapan buku saya terima?</summary><p>Segera setelah pembayaran, tautan unduh dikirim ke email &amp; WhatsApp yang kamu daftarkan, tanpa menunggu.</p></details>
@@ -446,36 +426,28 @@
 </div>
 
 <footer>
-  <div class="wrap">Riset & Skripsi dengan AI. Halaman penjualan resmi.<br>Baca juga: <a data-link="babgratis" href="#babgratis">Bab Preview: Menemukan Topik &amp; Awal Riset</a></div>
+  <div class="wrap">Riset & Skripsi dengan AI. Halaman penjualan resmi.</div>
 </footer>
 
 <div class="sticky-cta">
-  <a class="btn btn-ghost" data-link="babgratis" href="#babgratis">Bab Preview</a>
   <a class="btn btn-primary" href="#preorder">Beli Sekarang</a>
 </div>
 
 <script>
 /* ============================================================
-   KONFIGURASI HALAMAN: isi tiga nilai ini sebelum halaman live:
+   KONFIGURASI HALAMAN: isi dua nilai ini sebelum halaman live:
    1) targetDate  : tanggal target terbit, cth "28 November 2026"
    2) checkoutUrl : tautan checkout (Scalev/OrderHero/dll).
                     Selama kosong, formulir menampilkan pemberitahuan
                     bahwa checkout belum terhubung.
-   3) babGratisUrl: tautan halaman preview bab gratis (baca langsung, tanpa unduh).
-                    Selama kosong, tombol bab gratis mengarah ke
-                    bagian #babgratis di halaman ini.
    ============================================================ */
 const CONFIG = {
   targetDate: "",
-  checkoutUrl: "",
-  babGratisUrl: "https://dreamroad-us.github.io/riset-produk-web/bab-gratis.html"
+  checkoutUrl: ""
 };
 
 if (CONFIG.targetDate) {
   document.querySelectorAll(".tgl-target").forEach(function(el){ el.textContent = CONFIG.targetDate; el.classList.remove("ph"); });
-}
-if (CONFIG.babGratisUrl) {
-  document.querySelectorAll('[data-link="babgratis"]').forEach(function(a){ a.href = CONFIG.babGratisUrl; });
 }
 document.querySelectorAll('[data-paket]').forEach(function(a){
   a.addEventListener("click", function(){
